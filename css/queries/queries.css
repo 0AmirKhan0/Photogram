@@ -11,12 +11,9 @@
 }
 
 /***********************************/
-/* BELOW 704px (Smaller tablets)*/
+/* BELOW 800px (Breaak out)*/
 /***********************************/
-@media (max-width: 44em) {
-  html {
-    font-size: 56.25%;
-  }
+@media (max-width: 50em) {
   .comments-panel {
     height: calc(70vh);
     overflow: auto;
@@ -34,6 +31,15 @@
 
   .list-comments {
     overflow-y: unset;
+  }
+}
+
+/***********************************/
+/* BELOW 704px (Smaller tablets)*/
+/***********************************/
+@media (max-width: 44em) {
+  html {
+    font-size: 56.25%;
   }
 }
 
