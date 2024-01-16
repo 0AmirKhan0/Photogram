@@ -66,9 +66,10 @@
 }
 
 .dropdown-content .user-page a {
-  text-decoration: none;
   font-size: 1.6rem;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .dropdown-content .user-page img {

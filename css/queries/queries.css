@@ -1,9 +1,39 @@
 /***********************************/
+/* BELOW 900px (Breaak out)*/
+/***********************************/
+@media (max-width: 56.25em) {
+  .information-page {
+    gap: 1rem;
+  }
+  .follow-btn-from-post {
+    width: 8.5rem;
+  }
+}
+
+/***********************************/
 /* BELOW 704px (Smaller tablets)*/
 /***********************************/
 @media (max-width: 44em) {
   html {
     font-size: 56.25%;
+  }
+  .comments-panel {
+    height: calc(70vh);
+    overflow: auto;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.78);
+    border-radius: 1.6rem;
+    box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.4px);
+  }
+
+  .detail-post {
+    padding: 0 2rem;
+  }
+
+  .list-comments {
+    overflow-y: unset;
   }
 }
 

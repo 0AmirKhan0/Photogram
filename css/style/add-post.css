@@ -109,3 +109,19 @@ input:focus + label {
   width: 100%;
   height: 100%;
 }
+
+.discription-add-post {
+  width: 100%;
+  height: 8rem;
+  font-size: 1.5rem;
+  font-family: inherit;
+  resize: none;
+  border: none;
+  box-shadow: inset 0 0 1.5rem 0.4rem rgba(204, 204, 204, 0.5);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.discription-add-post::placeholder {
+  color: #adb5bdaf;
+}

@@ -115,8 +115,9 @@
 }
 
 .bio-user {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-top: 4rem;
+  line-height: 1.1;
 }
 
 .post-profile-section {
