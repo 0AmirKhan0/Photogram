@@ -1,0 +1,43 @@
+/***********************************/
+/* MESSAGE PART */
+/***********************************/
+.list-contanct {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  padding: 3rem;
+}
+
+.list-contanct a {
+  text-decoration: none;
+}
+
+.message-part {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.8rem;
+  border-radius: 3rem 1rem 1rem 3rem;
+}
+
+.message-part:hover {
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  outline: 1px solid #eee;
+}
+
+.message-part img {
+  width: 6.2rem;
+  height: 6.2rem;
+  border-radius: 50%;
+}
+
+.message-user-id {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.top-message {
+  font-size: 1.6rem;
+}

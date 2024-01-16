@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style/general.css" />
+    <link rel="stylesheet" href="../css/style/story2.css" />
+    <link rel="stylesheet" href="../css/queries/queries.css" />
+
+    <title>Instagram &mdash; Story</title>
+  </head>
+  <body>
+    <section class="story-section container">
+      <div data-slide="slide" class="slide">
+        <nav class="slide-nav">
+          <div class="slide-thumb"></div>
+          <div class="page-info">
+            <img src="../img/profiling/hannah.jpg" alt="profile user" />
+            <p class="id-user">Hannah</p>
+          </div>
+        </nav>
+
+        <div class="slide-items">
+          <img
+            src="https://i0.wp.com/macmagazine.com.br/wp-content/uploads/2018/09/14-wall-iphonexs02.png?ssl=1"
+            alt="Img 1"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/pw/AM-JKLV-k3_D29YpRF2UMv3ProFuZieWwCfTkelEfR9lajJv6JQQybWY_CgwvMfaWDZgruIhhwm0Lv6s_cMlyAfDaMBpBvtQztS-6szLEDYUuGQoOnnndLcvbCFWO_ae7NVScBrSWyYoMXevFltarjBlBWHQ=w279-h603-no"
+            alt="Img 3"
+          />
+          <button class="slide-prev">Previous</button>
+          <button class="slide-next">Next</button>
+        </div>
+      </div>
+    </section>
+    <script>
+      class SlideStories {
+        constructor(id) {
+          this.slide = document.querySelector(`[data-slide=${id}]`);
+          this.active = 0;
+          this.init();
+        }
+
+        activeSlide(index) {
+          this.active = index;
+          this.items.forEach((item) => {
+            item.classList.remove("active");
+          });
+          this.items[index].classList.add("active");
+          this.thumbItems.forEach((item) => {
+            item.classList.remove("active");
+          });
+          this.thumbItems[index].classList.add("active");
+          this.autoSlide();
+          console.log(this.thumbItems.classList);
+        }
+
+        prev() {
+          if (this.active > 0) {
+            this.activeSlide(this.active - 1);
+          } else {
+            this.activeSlide(this.items.length - 1);
+          }
+        }
+
+        next() {
+          if (this.active < this.items.length - 1) {
+            this.activeSlide(this.active + 1);
+          } else {
+            this.activeSlide(0);
+          }
+        }
+
+        addNavigation() {
+          const nextBtn = this.slide.querySelector(".slide-next");
+          const prevBtn = this.slide.querySelector(".slide-prev");
+          nextBtn.addEventListener("click", this.next);
+          prevBtn.addEventListener("click", this.prev);
+        }
+
+        addThumbItems() {
+          this.items.forEach(() => (this.thumb.innerHTML += `<span></span>`));
+          this.thumbItems = Array.from(this.thumb.children);
+        }
+
+        autoSlide() {
+          clearTimeout(this.timeout);
+          this.timeout = setTimeout(this.next, 5000);
+        }
+
+        init() {
+          this.next = this.next.bind(this);
+          this.prev = this.prev.bind(this);
+          this.items = this.slide.querySelectorAll(".slide-items > *");
+          this.thumb = this.slide.querySelector(".slide-thumb");
+          this.addThumbItems();
+          this.activeSlide(0);
+          this.addNavigation();
+        }
+      }
+
+      new SlideStories("slide");
+    </script>
+  </body>
+</html>

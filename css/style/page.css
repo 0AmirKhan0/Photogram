@@ -1,0 +1,72 @@
+/***********************************/
+/* PAGE PANEL */
+/***********************************/
+.btn {
+  width: 10rem;
+  height: 4rem;
+  border: none;
+  align-items: center;
+  appearance: none;
+  background-color: #3eb2fd;
+  background-image: linear-gradient(1deg, #4f58fd, #149bf3 99%);
+  background-size: calc(100% + 2rem) calc(100% + 2rem);
+  border-radius: 1rem;
+  border-width: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 1.6rem;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 0.6rem 2rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s, background-position 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.btn:active,
+.btn:focus {
+  outline: none;
+}
+
+.btn:hover {
+  background-position: -2rem -2rem;
+}
+
+.btn:focus:not(:active) {
+  box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 0.125em;
+}
+
+.btn-message {
+  background-color: #f1f3f5;
+  border: 0.2rem solid #88888867;
+  color: #555;
+  width: 11rem;
+  height: 4rem;
+
+  font-size: 1.6rem;
+  padding: 0.6rem 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+
+  transition: all 0.2s ease-in;
+}
+
+.btn-message:hover {
+  background-color: #888;
+  color: #fff;
+}
+
+.follow-message-btn a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

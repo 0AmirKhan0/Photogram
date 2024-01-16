@@ -1,0 +1,155 @@
+/***********************************/
+/* STORY AND MASSAGE PART */
+/***********************************/
+.main-story {
+  width: 100%;
+  background-color: #f1f3f5;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2.4rem 0;
+}
+
+.main-story .story {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+  text-align: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.story::-webkit-scrollbar {
+  display: none;
+}
+
+.story {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.story-user img {
+  width: 7.4rem;
+  height: 7.4rem;
+  border-radius: 50%;
+  border: 0.3rem solid crimson;
+  padding: 0.3rem;
+  transition: all 0.3s;
+}
+
+.story p {
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.seen-story img {
+  border: 0.3rem solid #555;
+}
+
+/***********************************/
+/* POST PART */
+/***********************************/
+.header-post {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.header-post a {
+  cursor: pointer;
+}
+
+.header-post img {
+  border-radius: 50%;
+  width: 4.8rem;
+  border: 0.3rem solid #adb5bd;
+  padding: 0.3rem;
+}
+
+.image-post {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.post-user {
+  margin-bottom: 4.8rem;
+}
+
+.header-post .post-details .location {
+  font-size: 1.2rem;
+}
+
+.post-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.location span {
+  vertical-align: 0.2rem;
+}
+
+.action-btn-post {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.6rem;
+  padding-top: 1.2rem;
+}
+
+.action-btn-post button {
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.action-btn-post .btn {
+  width: 2.6rem;
+  height: 2.6rem;
+}
+
+.action-btn-post .btn-like:hover {
+  fill: crimson;
+  stroke: crimson;
+}
+
+.action-btn-post .btn-bookmark:hover {
+  fill: #000;
+}
+
+.caption-post {
+  line-height: 1.6;
+  font-size: 1.4rem;
+}
+
+.caption-post .like-number {
+  font-weight: bold;
+}
+
+.caption-post .top-comments span {
+  font-weight: bold;
+}
+
+/* for space after username in top comments */
+.caption-post .top-comments span::after {
+  content: " ";
+}
+
+.caption-post .top-comments p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 90%;
+}
+
+.caption-post .date-post {
+  color: #888;
+  font-size: 1.2rem;
+  padding: 1rem 0 0;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style/general.css">
+  <link rel="stylesheet" href="../css/style/setting.css">
+  <link rel="stylesheet" href="../css/queries/queries.css">
+
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
+  <title>Instagram &mdash; Setting</title>
+</head>
+<body>
+  <header class="container">
+    <div class="main-header">
+      <nav class="header-icons">
+        <ul class="main-nav-list">
+          <li class="main-nav-link">
+            <a href="Home.html"
+              ><ion-icon name="home-outline" class="list-icon"></ion-icon>
+              </ion-icon>
+              <!-- for active part -->
+              <!-- <ion-icon name="home-sharp"> -->
+            </a>
+          </li>
+
+          <li class="main-nav-link">
+            <a href="Explore.html"
+              ><ion-icon name="earth-outline" class="list-icon"></ion-icon>
+              <!-- for active part -->
+              <!-- <ion-icon name="earth-sharp"></ion-icon> -->
+            </a>
+          </li>
+          <li class="main-nav-link">
+            <a href="Add_post.html"
+              ><ion-icon
+                name="add-circle-outline"
+                class="list-icon"
+              ></ion-icon>
+              <!-- for active part -->
+              <!-- <ion-icon name="add-circle-sharp"></ion-icon> -->
+            </a>
+          </li>
+
+          <li class="main-nav-link">
+            <a href="Message.html"
+              ><ion-icon name="navigate-outline" class="list-icon"></ion-icon></ion-icon>
+              <!-- for active part -->
+              <!-- <ion-icon name="navigate-sharp"></ion-icon> -->
+            </a>
+          </li>
+
+          <li class="main-nav-link">
+            <a href="./Profile.html"
+              ><ion-icon
+                name="person-circle-outline"
+                class="list-icon"
+              ></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <a href="#"
+        ><ion-icon name="logo-instagram" class="main-logo"></ion-icon
+      ></a>
+    </div>
+  </header>
+
+  <section class="setting-section container">
+    <ul class="setting-option">
+
+      <li>
+        <a href="./Profile.html" >
+        <ion-icon  name="arrow-back-outline" class="back-arrow"></ion-icon>
+      </a>
+    </li>
+
+      <li>
+          <p class="setting-header">Change avatar</p>
+          <div class="avatar-upload">
+              <div class="avatar-edit">
+                  <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                  <label for="imageUpload"></label>
+              </div>
+              <div class="avatar-preview">
+                  <div id="imagePreview" role="img" aria-label="avatar user" class="image-preview">
+                  </div>
+              </div>
+          </div>
+      </li>
+      
+      <li>
+        <label class="setting-header">Change Bio</label>
+        <textarea class="input-bio" rows="3" cols="50" placeholder="Write a bio of yourself for people who don't know you"></textarea>
+      </li>
+
+      <li class="save-setting">
+        <button class="save-change-btn">Save changes</button>
+      </li>
+    </ul>
+  </section>
+</body>
+</html>
+
+

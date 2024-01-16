@@ -1,0 +1,111 @@
+/***********************************/
+/* ADD POST PART */
+/***********************************/
+
+.add-post-section {
+  max-width: 80rem;
+  background-color: transparent;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 1.2rem;
+
+  margin: 0 auto;
+}
+
+.file-input {
+  width: 50%;
+  min-height: 35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.8rem;
+  padding: 1.2rem;
+  background-color: #fff;
+}
+
+.file {
+  opacity: 0;
+  width: 0.0001rem;
+  height: 0.001rem;
+  position: absolute;
+}
+
+.file-input label {
+  font-size: 1.8rem;
+  position: relative;
+  width: 20rem;
+  height: 5rem;
+  border-radius: 2.5rem;
+  background: linear-gradient(40deg, #ff6ec4, #7873f5);
+  box-shadow: 0 0.4rem 0.7rem rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease-out;
+}
+
+.file-name {
+  position: absolute;
+  bottom: -3.5rem;
+  left: 1rem;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+input:hover + label,
+input:focus + label {
+  transform: scale(1.02);
+}
+
+/* Adding an outline to the label on focus */
+input:focus + label {
+  outline: 1px solid #000;
+  outline: -webkit-focus-ring-color auto 2px;
+}
+
+.file-input img {
+  border-radius: 1rem;
+  width: 10rem;
+  height: 10rem;
+}
+
+/* for image preview */
+.fill {
+  width: 100% !important;
+  height: auto !important;
+}
+
+.file-input .btn {
+  border: none;
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: 600;
+  background-color: #3fb2ff;
+  color: #fff;
+  border-radius: 2rem;
+  padding: 1rem 2rem;
+  transition: all 0.2s ease-in;
+}
+
+.file-input .btn:hover {
+  background-color: #138fe2;
+}
+
+.remove {
+  display: none;
+}
+
+.show {
+  display: block;
+  position: relative;
+}
+
+.show img {
+  width: 100%;
+  height: 100%;
+}

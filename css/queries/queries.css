@@ -1,0 +1,68 @@
+/***********************************/
+/* BELOW 704px (Smaller tablets)*/
+/***********************************/
+@media (max-width: 44em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+/***********************************/
+/* BELOW 656px (Smaller tablets)*/
+/***********************************/
+@media (max-width: 41em) {
+  html {
+    font-size: 50%;
+  }
+  /* profile */
+  .list-post {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .top-profile-section img {
+    max-width: 25%;
+    height: fit-content;
+  }
+
+  /* save post */
+  .save-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/***********************************/
+/* BELOW 504px (Phones)*/
+/***********************************/
+@media (max-width: 34em) {
+  /* profile */
+  .list-post {
+    grid-template-columns: 1fr;
+  }
+
+  .top-profile-section {
+    gap: 1.8rem;
+  }
+
+  .detail-profile {
+    width: 100%;
+  }
+
+  .post-follower-section {
+    font-size: 1.4rem;
+    gap: 1rem;
+  }
+
+  .user-id {
+    font-size: 2.4rem;
+  }
+
+  /* save post */
+  .save-section {
+    grid-template-columns: 1fr;
+  }
+
+  /* explore */
+  .explore-section {
+    grid-template-columns: 1fr;
+  }
+}

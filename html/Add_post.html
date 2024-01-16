@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style/general.css">
+    <link rel="stylesheet" href="../css/style/add-post.css">
+    <link rel="stylesheet" href="../css/queries/queries.css">
+    <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+  ></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+  ></script>
+    <title>Instagram &mdash; Add-post</title>
+  </head>
+  <body>
+    <header class="container">
+      <div class="main-header">
+        <nav class="header-icons">
+          <ul class="main-nav-list">
+            <li class="main-nav-link">
+              <a href="Home.html"
+                ><ion-icon name="home-outline" class="list-icon"></ion-icon>
+                </ion-icon>
+                <!-- for active part -->
+                <!-- <ion-icon name="home-outline"> -->
+              </a>
+            </li>
+  
+            <li class="main-nav-link">
+              <a href="Explore.html"
+                ><ion-icon name="earth-outline" class="list-icon"></ion-icon></ion-icon>
+                <!-- for active part -->
+                <!-- <ion-icon name="earth-sharp" ></ion-icon> -->
+              </a>
+            </li>
+            <li class="main-nav-link">
+              <a href="Add_post.html"
+                ><ion-icon name="add-circle-sharp" class="list-icon"></ion-icon>
+                <!-- for active part -->
+                <!-- <ion-icon
+                  name="add-circle-outline"
+                  
+                ></ion-icon> -->
+              </a>
+            </li>
+  
+            <li class="main-nav-link">
+              <a href="Message.html"
+                ><ion-icon name="navigate-outline" class="list-icon"></ion-icon></ion-icon>
+                <!-- for active part -->
+                <!-- <ion-icon name="navigate-sharp"></ion-icon> -->
+              </a>
+            </li>
+  
+            <li class="main-nav-link">
+              <a href="Profile.html"
+                ><ion-icon
+                  name="person-circle-outline"
+                  class="list-icon"
+                ></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <a href="#"
+          ><ion-icon name="logo-instagram" class="main-logo"></ion-icon
+        ></a>
+      </div>
+    </header>
+  
+    <section class="add-post-section">
+      <div class="file-input">
+        <img src="../img/Nessesury-icon/add-instagram-reel.png" alt="icon for add post" id="addPostSrc">
+        <input type="file" id="postFile" class="file">
+        <label for="postFile">
+          Select file
+          <p class="file-name"></p>
+        </label>
+        <button class="add-post-btn btn">Add Post</button>
+      </div>
+      <div class="file-input">
+        
+        <img src="../img/Nessesury-icon/add-instagram-story.png" alt="icon for add story" id="addStorySrc">
+        <input type="file" id="storyFile" class="file">
+        <label for="storyFile">
+          Select file
+          <p class="file-name"></p>
+        </label>
+        <button class="post-story btn">Add Story</button>
+      </div>
+
+    </section>
+    <script>
+    const storyDefaultImg = document.getElementById('addStorySrc')
+    const storyInput = document.getElementById('storyFile');
+    const toBase64 = file => new Promise((resolve, reject) => {
+       const reader = new FileReader();
+       reader.readAsDataURL(file);
+       reader.onload = () => resolve(reader.result);
+       reader.onerror = error => reject(error);
+    });
+    const inputFiles = async (files) => {
+      //  storyInput.files = files;
+      storyDefaultImg.classList.add('fill');
+      storyDefaultImg.src = await toBase64(files[0]);
+    }
+    storyInput.onchange = () => {
+       inputFiles(storyInput.files);
+    }
+    </script>
+  </body>
+</html>
+
+
