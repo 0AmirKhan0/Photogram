@@ -1,105 +1,58 @@
-.info-page {
+/***********************************/
+/* STORY PART */
+/***********************************/
+
+.overlay-story {
+  background-color: #000000d2;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100svh;
+}
+
+.overlay-story img {
+  width: 100%;
+  max-height: 100%;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.story-container {
+  position: relative;
+  margin: auto;
+  width: 30%;
+}
+
+.story-container::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 25%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), transparent);
+  border-radius: 2rem 2rem 0 0;
+}
+
+.story-container .information-page {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   gap: 1.2rem;
-
   position: absolute;
-  top: 2rem;
-  left: 1rem;
-
-  z-index: 99;
-}
-
-.slide {
-  max-width: 80rem;
-  height: 90vh;
-  position: relative;
-}
-
-.slide-items {
-  position: relative;
-  grid-area: 1/1;
-  overflow: hidden;
-  border-radius: 30px;
-}
-
-.slide-items img {
-  object-fit: cover;
-  height: 80vh;
-  max-width: 80rem;
-  display: block;
-}
-
-.slide-nav {
-  grid-area: 1/1;
-  width: 1005;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto 1fr;
-  position: absolute;
-  top: 0;
   z-index: 999;
+  top: 1.5rem;
+  left: 1.5rem;
 }
 
-.slide-items > * {
-  position: absolute;
-  top: 0;
-  opacity: 0;
-  pointer-events: none;
+.story-container .information-page img {
+  width: 5rem;
+  border-radius: 50%;
 }
 
-.slide-items > .active {
-  position: relative;
-  opacity: 1;
-  poiter-events: initial;
-}
-
-.slide-nav button {
-  -webkit-appearance: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  opacity: 0;
-  width: 8rem;
-  height: 80vh;
-}
-
-.slide-thumb {
-  display: flex;
-  grid-column: 1/3;
-  padding: 0 15px;
-}
-
-.slide-thumb > span {
-  flex: 1;
-  display: block;
-  height: 2px;
-  background: #afafaf;
-  margin: 3px;
-  margin-top: 20px;
-  border-radius: 3px;
-  overflow: hidden;
-  z-index: 90;
-}
-
-.slide-thumb > span.done:after {
-  content: "";
-  display: block;
-  height: inherit;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 3px;
-}
-
-.slide-thumb > span.active:after {
-  content: "";
-  display: block;
-  height: inherit;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 3px;
-  transform: translateX(-100%);
-  animation: thumb 5s forwards linear;
-}
-
-@keyframes thumb {
-  to {
-    transform: initial;
-  }
+.story-container .information-page p {
+  color: #fff;
+  font-size: 1.8rem;
 }
