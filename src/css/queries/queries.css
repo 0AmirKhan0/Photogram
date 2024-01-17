@@ -1,0 +1,120 @@
+/***********************************/
+/* BELOW 900px (Breaak out)*/
+/***********************************/
+@media (max-width: 56.25em) {
+  .information-page {
+    gap: 1rem;
+  }
+  .follow-btn-from-post {
+    width: 8.5rem;
+  }
+}
+
+/***********************************/
+/* BELOW 800px (Breaak out)*/
+/***********************************/
+@media (max-width: 50em) {
+  .comments-panel {
+    height: calc(70vh);
+    overflow: auto;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.78);
+    border-radius: 1.6rem;
+    box-shadow: 0 0.4rem 3rem rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.4px);
+  }
+
+  .detail-post {
+    padding: 0 2rem;
+  }
+
+  .list-comments {
+    overflow-y: unset;
+  }
+
+  .flex-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .top-profile-section img {
+    height: 25%;
+  }
+}
+
+/***********************************/
+/* BELOW 704px (Smaller tablets)*/
+/***********************************/
+@media (max-width: 44em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+/***********************************/
+/* BELOW 656px (Smaller tablets)*/
+/***********************************/
+@media (max-width: 41em) {
+  html {
+    font-size: 50%;
+  }
+
+  /* explore */
+  .explore-section {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* profile */
+  .list-post {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .top-profile-section img {
+    max-width: 25%;
+    height: fit-content;
+  }
+
+  /* save post */
+  .save-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/***********************************/
+/* BELOW 504px (Phones)*/
+/***********************************/
+@media (max-width: 34em) {
+  /* profile */
+  .list-post {
+    grid-template-columns: 1fr;
+  }
+
+  .top-profile-section {
+    gap: 1.8rem;
+  }
+
+  .detail-profile {
+    width: 100%;
+  }
+
+  .post-follower-section {
+    font-size: 1.4rem;
+    gap: 1rem;
+  }
+
+  .user-id {
+    font-size: 2.4rem;
+  }
+
+  /* save post */
+  .save-section {
+    grid-template-columns: 1fr;
+  }
+
+  /* explore */
+  .explore-section {
+    display: flex;
+    flex-direction: column;
+  }
+}

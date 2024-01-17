@@ -1,0 +1,58 @@
+/***********************************/
+/* STORY PART */
+/***********************************/
+
+.overlay-story {
+  background-color: #000000d2;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100svh;
+}
+
+.overlay-story img {
+  width: 100%;
+  max-height: 100%;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.story-container {
+  position: relative;
+  margin: auto;
+  width: 30%;
+}
+
+.story-container::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 25%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.6), transparent);
+  border-radius: 2rem 2rem 0 0;
+}
+
+.story-container .information-page {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.2rem;
+  position: absolute;
+  z-index: 999;
+  top: 1.5rem;
+  left: 1.5rem;
+}
+
+.story-container .information-page img {
+  width: 5rem;
+  border-radius: 50%;
+}
+
+.story-container .information-page p {
+  color: #fff;
+  font-size: 1.8rem;
+}

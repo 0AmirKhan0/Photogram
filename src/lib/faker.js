@@ -18,8 +18,14 @@ export function userGenerator() {
 }
 
 
-export function postGenerator(userId = "1") {
-
+export function postGenerator(userId) {
+    if (!userId){
+        axios.get("http://localhost:3001/users")
+            .then(response => {
+                userId = response[Math.floor(Math.random()*response.length)].id
+            })
+            .catch(err => console.log(err))
+    }
     const post = {
         id: faker.string.uuid(),
         image: faker.image.urlPicsumPhotos(),
@@ -33,8 +39,14 @@ export function postGenerator(userId = "1") {
     return post;
 }
 
-export function storyGenerator(userId = "1") {
-
+export function storyGenerator(userId) {
+    if (!userId){
+        axios.get("http://localhost:3001/users")
+            .then(response => {
+                userId = response[Math.floor(Math.random()*response.length)].id
+            })
+            .catch(err => console.log(err))
+    }
     const story = {
         id: faker.string.uuid(),
         image: faker.image.urlPicsumPhotos(),
@@ -47,7 +59,21 @@ export function storyGenerator(userId = "1") {
     return story;
 }
 
-export function commentGenerator(userId = "1", postId = "1") {
+export function commentGenerator(userId, postId) {
+    if (!userId){
+        axios.get("http://localhost:3001/users")
+            .then(response => {
+                userId = response[Math.floor(Math.random()*response.length)].id
+            })
+            .catch(err => console.log(err))
+    }
+    if (!postId){
+        axios.get("http://localhost:3001/posts")
+            .then(response => {
+                postId = response[Math.floor(Math.random()*response.length)].id
+            })
+            .catch(err => console.log(err))
+    }
     const comment = {
         id: faker.string.uuid(),
         content: faker.lorem.sentences(),

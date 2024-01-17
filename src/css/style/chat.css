@@ -1,0 +1,116 @@
+/***********************************/
+/* CHAT SECTION */
+/***********************************/
+.header-chat {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.8rem;
+  padding: 0.5rem 0;
+  border-bottom: 5px outset rgba(0, 0, 0, 0.1);
+  border-radius: 0px 0px 20px 20px;
+}
+
+.back-arrow:link,
+.back-arrow:visited {
+  text-decoration: none;
+}
+
+.back-arrow ion-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.header-chat img {
+  width: 10%;
+  border-radius: 50%;
+}
+
+.user-id {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+/***********************************/
+/* CHAT PART */
+/***********************************/
+.chat-part {
+  height: 55vh;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  font-size: 1.6rem;
+  gap: 1.6rem;
+  margin-bottom: 1.2rem;
+  overflow-y: auto;
+  padding-right: 1rem;
+}
+
+.chat-part li {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.chat-part li img {
+  width: 5.2rem;
+  border-radius: 50%;
+}
+
+.chat-part li p {
+  color: #fff;
+  padding: 1rem;
+  background: #388697;
+  border-radius: 6rem 6rem 6rem 0;
+}
+
+.chat-part .friend-user {
+  justify-content: end;
+}
+
+.chat-part .friend-user p {
+  border-radius: 6rem 6rem 0 6rem;
+  background-color: #33658a;
+}
+
+.send-message-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.input-chat {
+  width: 95%;
+  min-height: 8rem;
+  /* height: 8rem; */
+  font-family: inherit;
+  border: none;
+  box-shadow: inset 0 0 1.5rem 0.4rem rgba(204, 204, 204, 0.5);
+  border-radius: 2rem;
+  padding: 1.2rem;
+  resize: none;
+  display: inline-block;
+}
+
+.input-chat:focus {
+  outline-color: #adb5bd;
+}
+
+.input-chat::placeholder {
+  color: #adb5bdaf;
+}
+
+.send-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  cursor: pointer;
+}
