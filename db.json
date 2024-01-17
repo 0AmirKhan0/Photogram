@@ -1,0 +1,24 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "username": "amirkhan1",
+            "password": "12345678",
+            "bio": "lorem ipsum dolor sit amet1 lorem ipsum dolor sit amet1 lorem ipsum dolor sit amet1",
+            "avatar": "./templates/img/1"
+        },
+        {
+            "id": "2",
+            "username": "amirkhan2",
+            "password": "123456789",
+            "bio": "lorem ipsum dolor sit amet2 lorem ipsum dolor sit amet2 lorem ipsum dolor sit amet2 lorem ipsum dolor sit amet2",
+            "avatar": "./templates/img/2"
+        }
+    ],
+    "posts": [],
+    "comments": [],
+    "savedPosts": [],
+    "likes": [],
+    "stories": [],
+    "messages": []
+}
