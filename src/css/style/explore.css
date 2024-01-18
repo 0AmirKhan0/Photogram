@@ -11,7 +11,7 @@
 
 .search-explore {
   font-size: 1.5rem;
-  background-image: url(../../img/Nessesury-icon/magnifying-glass.png);
+  background-image: url(../../icons/magnifying-glass.png);
   background-position-x: calc(100% - 1rem);
   background-position-y: center;
   background-repeat: no-repeat;
@@ -44,6 +44,7 @@
 .dropdown-content {
   display: none;
   max-height: 50rem;
+  overflow: auto;
   /* display: flex; */
   gap: 1rem;
   flex-direction: column;

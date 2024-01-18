@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker';
 import { simpleFaker } from '@faker-js/faker';
 
 import axios from 'axios';
-
+import { getReq, postReq } from './request';
 export function userGenerator() {
     const user = {
         id: faker.string.uuid(),
@@ -19,31 +19,41 @@ export function userGenerator() {
 
 
 export function postGenerator(userId) {
-    if (!userId){
-        axios.get("http://localhost:3001/users")
-            .then(response => {
-                userId = response[Math.floor(Math.random()*response.length)].id
+    if (!userId) {
+        getReq("/users")
+            .then(users => {
+                const post = {
+                    id: faker.string.uuid(),
+                    image: faker.image.urlPicsumPhotos(),
+                    description: faker.lorem.paragraph(),
+                    created_time: faker.date.recent().toLocaleString(),
+                    userId: users[Math.floor(Math.random() * users.length)].id
+                }
+                postReq("/posts", post)
+                    .then(response => console.log(response))
+                    .catch(err => console.log(err))
+                return post;
             })
+    } else {
+        const post = {
+            id: faker.string.uuid(),
+            image: faker.image.urlPicsumPhotos(),
+            description: faker.lorem.paragraph(),
+            created_time: faker.date.recent().toLocaleString(),
+            userId: userId
+        }
+        postReq("/posts", post)
+            .then(response => console.log(response))
             .catch(err => console.log(err))
+        return post;
     }
-    const post = {
-        id: faker.string.uuid(),
-        image: faker.image.urlPicsumPhotos(),
-        description: faker.lorem.paragraph(),
-        created_time: faker.date.recent().toLocaleString(),
-        userId: userId
-    }
-    axios.post("http://localhost:3001/posts", post)
-        .then(response => console.log(response))
-        .catch(err => console.log(err))
-    return post;
 }
 
 export function storyGenerator(userId) {
-    if (!userId){
+    if (!userId) {
         axios.get("http://localhost:3001/users")
             .then(response => {
-                userId = response[Math.floor(Math.random()*response.length)].id
+                userId = response[Math.floor(Math.random() * response.length)].id
             })
             .catch(err => console.log(err))
     }
@@ -60,17 +70,17 @@ export function storyGenerator(userId) {
 }
 
 export function commentGenerator(userId, postId) {
-    if (!userId){
+    if (!userId) {
         axios.get("http://localhost:3001/users")
             .then(response => {
-                userId = response[Math.floor(Math.random()*response.length)].id
+                userId = response[Math.floor(Math.random() * response.length)].id
             })
             .catch(err => console.log(err))
     }
-    if (!postId){
+    if (!postId) {
         axios.get("http://localhost:3001/posts")
             .then(response => {
-                postId = response[Math.floor(Math.random()*response.length)].id
+                postId = response[Math.floor(Math.random() * response.length)].id
             })
             .catch(err => console.log(err))
     }
@@ -114,9 +124,9 @@ export function likeGenerator(userId = "1", postId = "1") {
 export function messageGenerator(senderId, receiverId, content = faker.lorem.sentence()) {
     const message = {
         id: faker.string.uuid(),
-        senderId : senderId,
-        receiverId : receiverId,
-        content : content,
+        senderId: senderId,
+        receiverId: receiverId,
+        content: content,
         created_time: faker.date.recent().toLocaleString(),
     }
     axios.post("http://localhost:3001/messages", message)
