@@ -8,7 +8,7 @@ export default function Layout({ children }) {
                         <ul className="main-nav-list">
                             <li className="main-nav-link">
                                 <a href="#">
-                                    <ion-icon name="home-sharp" className="list-icon"></ion-icon>
+                                    <ion-icon name="home-sharp" class="list-icon"></ion-icon>
                                     {/* <!-- for active part --> */}
                                     {/* <!-- <ion-icon name="home-outline"> --> */}
                                 </a>
@@ -16,7 +16,7 @@ export default function Layout({ children }) {
 
                             <li className="main-nav-link">
                                 <a href="Explore.html"
-                                ><ion-icon name="earth-outline" className="list-icon"></ion-icon>
+                                ><ion-icon name="earth-outline" class="list-icon"></ion-icon>
                                     {/* <!-- for active part --> */}
                                     {/* <!-- <ion-icon name="earth-sharp"></ion-icon> --> */}
                                 </a>
@@ -25,7 +25,7 @@ export default function Layout({ children }) {
                                 <a href="Add_post.html"
                                 ><ion-icon
                                     name="add-circle-outline"
-                                    className="list-icon"
+                                    class="list-icon"
                                 ></ion-icon>
                                     {/* <!-- for active part --> */}
                                     {/* <!-- <ion-icon name="add-circle-sharp"></ion-icon> --> */}
@@ -33,7 +33,7 @@ export default function Layout({ children }) {
                             </li>
 
                             <li className="main-nav-link">
-                                <a href="Message.html"><ion-icon name="navigate-outline" className="list-icon"></ion-icon>
+                                <a href="Message.html"><ion-icon name="navigate-outline" class="list-icon"></ion-icon>
                                     {/* <!-- for active part --> */}
                                     {/* <!-- <ion-icon name="navigate-sharp"></ion-icon> --> */}
                                 </a>
@@ -43,14 +43,14 @@ export default function Layout({ children }) {
                                 <a href="Profile.html"
                                 ><ion-icon
                                     name="person-circle-outline"
-                                    className="list-icon"
+                                    class="list-icon"
                                 ></ion-icon>
                                 </a>
                             </li>
                         </ul>
                     </nav>
                     <a href="#"
-                    ><ion-icon name="logo-instagram" className="main-logo"></ion-icon></a>
+                    ><ion-icon name="logo-instagram" class="main-logo"></ion-icon></a>
                 </div>
             </header >
             {children}

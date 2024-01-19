@@ -12,11 +12,11 @@ body {
   font-family: "Montserrat", "Roboto", sans-serif;
   background-color: #c9d6ff;
   background: linear-gradient(to right, #e2e2e2, #c9d6ff);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100vh;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* flex-direction: column; */
+  min-height: 100vh;
 }
 
 .container-sign {
@@ -28,6 +28,8 @@ body {
   width: 76.8rem;
   max-width: 100%;
   min-height: 48rem;
+  margin: auto;
+  transform: translateY(10rem);
 }
 
 .container-sign p {
