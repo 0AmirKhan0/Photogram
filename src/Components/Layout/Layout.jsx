@@ -1,5 +1,10 @@
 
+import { createRef, useEffect, useRef, useState } from "react"
+import { Link, useLocation } from "react-router-dom"
+
 export default function Layout({ children }) {
+    const location = useLocation()
+    useEffect(() => console.log(location));
     return (
         <>
             <header className="container">
@@ -7,50 +12,43 @@ export default function Layout({ children }) {
                     <nav className="header-icons">
                         <ul className="main-nav-list">
                             <li className="main-nav-link">
-                                <a href="#">
-                                    <ion-icon name="home-sharp" class="list-icon"></ion-icon>
+                                <Link to="/">
+                                    <ion-icon name={`home-${location.pathname === "/" ? "sharp" : "outline"}`} class="list-icon"></ion-icon>
                                     {/* <!-- for active part --> */}
                                     {/* <!-- <ion-icon name="home-outline"> --> */}
-                                </a>
+                                </Link>
                             </li>
 
                             <li className="main-nav-link">
-                                <a href="Explore.html"
-                                ><ion-icon name="earth-outline" class="list-icon"></ion-icon>
+                                <Link to="/explore">
+                                    <ion-icon name={`earth-${location.pathname === "/explore" ? "sharp" : "outline"}`} class="list-icon"></ion-icon>
                                     {/* <!-- for active part --> */}
                                     {/* <!-- <ion-icon name="earth-sharp"></ion-icon> --> */}
-                                </a>
+                                </Link>
                             </li>
                             <li className="main-nav-link">
-                                <a href="Add_post.html"
-                                ><ion-icon
-                                    name="add-circle-outline"
-                                    class="list-icon"
-                                ></ion-icon>
+                                <Link to="/add"><ion-icon name={`add-circle-${location.pathname === "/add" ? "sharp" : "outline"}`} class="list-icon"></ion-icon>
                                     {/* <!-- for active part --> */}
                                     {/* <!-- <ion-icon name="add-circle-sharp"></ion-icon> --> */}
-                                </a>
+                                </Link>
                             </li>
 
                             <li className="main-nav-link">
-                                <a href="Message.html"><ion-icon name="navigate-outline" class="list-icon"></ion-icon>
+                                <Link to="/message"><ion-icon name={`navigate-${location.pathname === "/message" ? "sharp" : "outline"}`} class="list-icon"></ion-icon>
                                     {/* <!-- for active part --> */}
                                     {/* <!-- <ion-icon name="navigate-sharp"></ion-icon> --> */}
-                                </a>
+                                </Link>
                             </li>
 
                             <li className="main-nav-link">
-                                <a href="Profile.html"
-                                ><ion-icon
-                                    name="person-circle-outline"
-                                    class="list-icon"
-                                ></ion-icon>
-                                </a>
+                                <Link to="/profile">
+                                    <ion-icon name={`person-circle-${location.pathname === "/profile" ? "sharp" : "outline"}`} class="list-icon" ></ion-icon>
+                                </Link>
                             </li>
                         </ul>
                     </nav>
-                    <a href="#"
-                    ><ion-icon name="logo-instagram" class="main-logo"></ion-icon></a>
+                    <Link to="/login"
+                    ><ion-icon name="logo-instagram" class="main-logo"></ion-icon></Link>
                 </div>
             </header >
             {children}

@@ -18,7 +18,7 @@ export function userGenerator() {
 }
 
 
-export function postGenerator(userId) {
+export function postGenerator(userId, postInp) {
     if (!userId) {
         getReq("/users")
             .then(users => {
@@ -35,50 +35,57 @@ export function postGenerator(userId) {
                 return post;
             })
     } else {
+        const datetime = new Date()
         const post = {
             id: faker.string.uuid(),
-            image: faker.image.urlPicsumPhotos(),
-            description: faker.lorem.paragraph(),
-            created_time: faker.date.recent().toLocaleString(),
+            image: postInp.image,
+            description: postInp.description,
+            created_time: datetime.toLocaleString(),
             userId: userId
         }
-        postReq("/posts", post)
-            .then(response => console.log(response))
-            .catch(err => console.log(err))
-        return post;
+        return postReq("/posts", post).then(post).catch()
     }
 }
 
-export function storyGenerator(userId) {
+export function storyGenerator(userId, image) {
     if (!userId) {
-        axios.get("http://localhost:3001/users")
-            .then(response => {
-                userId = response[Math.floor(Math.random() * response.length)].id
+        getReq("/users")
+            .then(users => {
+                const story = {
+                    id: faker.string.uuid(),
+                    image: faker.image.urlPicsumPhotos(),
+                    created_time: faker.date.recent().toLocaleString(),
+                    userId: users[Math.floor(Math.random() * users.length)].id
+                }
+                postReq('/stories', story).then(story).catch()
+                const current = new Date(story.created_time)
+                console.log(current.getHours())
+                return story
             })
             .catch(err => console.log(err))
+    } else {
+        const datetime = new Date()
+        const story = {
+            id: faker.string.uuid(),
+            image: image,
+            created_time: datetime.toLocaleString(),
+            userId: userId
+        }
+        postReq('/stories', story).then(story).catch()
+        return story
     }
-    const story = {
-        id: faker.string.uuid(),
-        image: faker.image.urlPicsumPhotos(),
-        created_time: faker.date.recent().toLocaleString(),
-        userId: userId
-    }
-    axios.post("http://localhost:3001/stories", story)
-        .then(response => console.log(response))
-        .catch(err => console.log(err))
-    return story;
 }
 
 export function commentGenerator(userId, postId) {
     if (!userId) {
-        axios.get("http://localhost:3001/users")
+        axios.get("/users")
             .then(response => {
                 userId = response[Math.floor(Math.random() * response.length)].id
             })
             .catch(err => console.log(err))
     }
     if (!postId) {
-        axios.get("http://localhost:3001/posts")
+        axios.get("/posts")
             .then(response => {
                 postId = response[Math.floor(Math.random() * response.length)].id
             })
@@ -121,16 +128,26 @@ export function likeGenerator(userId = "1", postId = "1") {
     return like;
 }
 
-export function messageGenerator(senderId, receiverId, content = faker.lorem.sentence()) {
+export function messageGenerator(chatId, senderId , content) {
+    const datetime = new Date()
     const message = {
         id: faker.string.uuid(),
+        chatId: chatId,
         senderId: senderId,
-        receiverId: receiverId,
         content: content,
-        created_time: faker.date.recent().toLocaleString(),
+        created_time: datetime.toLocaleString(),
     }
-    axios.post("http://localhost:3001/messages", message)
-        .then(response => console.log(response))
-        .catch(err => console.log(err))
-    return message;
+    postReq('/messages', message).then(message).catch()
+    return message
+}
+
+export function chatGenerator(user1Id, user2Id) {
+    const chat = {
+        id: faker.string.uuid(),
+        user1Id: user1Id,
+        user2Id: user2Id,
+    }
+    postReq("/chats", chat).then(chat).catch()
+    return chat
+
 }

@@ -32,7 +32,8 @@
 }
 
 .search-explore:focus + .dropdown-content {
-  display: flex;
+  /* display: flex; */
+  display: block;
 }
 
 .dropdown {
@@ -46,10 +47,9 @@
   max-height: 50rem;
   overflow: auto;
   /* display: flex; */
-  gap: 1rem;
+  /* gap: 1rem; */
   flex-direction: column;
   justify-content: space-evenly;
-
   position: absolute;
   margin-top: 5.5rem;
   width: 36rem;
@@ -61,6 +61,7 @@
 }
 
 .dropdown-content .user-page {
+  margin: 1.5rem 0;
   display: flex;
   align-items: center;
   gap: 1rem;

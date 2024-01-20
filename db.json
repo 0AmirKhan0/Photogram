@@ -5,14 +5,14 @@
       "username": "amirkhan1",
       "password": "12345678",
       "bio": "lorem ipsum dolor sit amet1 lorem ipsum dolor sit amet1 lorem ipsum dolor sit amet1",
-      "avatar": "./templates/img/1"
+      "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/172.jpg"
     },
     {
       "id": "2",
       "username": "amirkhan2",
       "password": "123456789",
       "bio": "lorem ipsum dolor sit amet2 lorem ipsum dolor sit amet2 lorem ipsum dolor sit amet2 lorem ipsum dolor sit amet2",
-      "avatar": "./templates/img/2"
+      "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/981.jpg"
     },
     {
       "id": "73d9054e-8732-438e-aad9-3dc435ebeb2f",
@@ -2037,5 +2037,34 @@
   "savedPosts": [],
   "likes": [],
   "stories": [],
-  "messages": []
+  "messages": [
+    {
+      "id": "1",
+      "chatId": "1",
+      "senderId": "1",
+      "content": "content1",
+      "created_time": "1/17/2024, 4:04:00 PM"
+    },
+    {
+      "id": "1",
+      "chatId": "1",
+      "senderId": "2",
+      "content": "content2",
+      "created_time": "1/17/2024, 5:04:00 PM"
+    },
+    {
+      "id": "1",
+      "chatId": "1",
+      "senderId": "2",
+      "content": "content3",
+      "created_time": "1/17/2024, 6:04:00 PM"
+    }
+  ],
+  "chats": [
+    {
+      "id": "1",
+      "user1Id": "1",
+      "user2Id": "2"
+    }
+  ]
 }

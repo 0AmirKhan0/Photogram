@@ -4,7 +4,7 @@ import { useAuthDispatch, useAuthState } from "../../Context/auth-context"
 import { actionTypes } from "../../Context/reducer"
 import { getReq, postReq } from "../../lib/request"
 import { faker } from "@faker-js/faker"
-
+import { useLocation, useNavigate } from "react-router-dom"
 
 const fetchUserData = async (username) => {
     return getReq(`/users?username=${username}`).then(users => users[0]).catch()
@@ -19,7 +19,8 @@ export default function Login() {
     const [singinForm, setSigninForm] = useState({})
     const { loading, error } = useAuthState()
     const authDispatch = useAuthDispatch()
-
+    const navigate = useNavigate()
+    const location = useLocation()
     const handleUsernameForm = (e) => {
         if (mode === MODES.singup) {
             setSignupForm((state) => {
@@ -61,6 +62,7 @@ export default function Login() {
                             type: actionTypes.LOGIN_SUCCESS,
                             payload: { user: tempUser }
                         })
+                        navigate(location?.state?.from ? location.state.from : '/', { replace: true })
                         // console.log(user)
                     } else {
                         authDispatch({
@@ -112,6 +114,7 @@ export default function Login() {
                     type: actionTypes.LOGIN_SUCCESS,
                     payload: { user: tempUser }
                 })
+                navigate(location?.state?.from ? location.state.from : '/', { replace: true })
             } else {
                 authDispatch({
                     type: actionTypes.LOGOUT
