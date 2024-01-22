@@ -1,7 +1,8 @@
 /***********************************/
 /* PAGE PANEL */
 /***********************************/
-.btn {
+
+.profile-section .btn {
   width: 10rem;
   height: 4rem;
   border: none;
@@ -69,4 +70,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+.profile-section .following {
+  background-image: none !important;
+  background-color: #fff !important;
+  border: 0.2rem solid #149bf3 !important;
+  color: #149bf3 !important;
+  font-weight: bold !important;
 }

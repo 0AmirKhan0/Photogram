@@ -1,1 +1,0 @@
-const navContext = React.createContext()

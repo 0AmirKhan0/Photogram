@@ -2,6 +2,26 @@
 /* STORY PART */
 /***********************************/
 
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  height: 2px;
+
+}
+
+#progress::-moz-progress-bar {
+  background: #fff;
+}
+
+#progress::-webkit-progress-value {
+  background: #fff;
+}
+
 .overlay-story {
   background-color: #000000d2;
   position: fixed;
@@ -12,6 +32,7 @@
   height: 100svh;
 }
 
+
 .overlay-story img {
   width: 100%;
   max-height: 100%;
@@ -19,11 +40,16 @@
   overflow: hidden;
 }
 
+
 .story-container {
   position: relative;
-  margin: auto;
-  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: auto; */
+  /* height: 80vh; */
 }
+
 
 .story-container::before {
   content: "";
@@ -36,6 +62,7 @@
   border-radius: 2rem 2rem 0 0;
 }
 
+
 .story-container .information-page {
   display: flex;
   align-items: center;
@@ -45,6 +72,7 @@
   z-index: 999;
   top: 1.5rem;
   left: 1.5rem;
+  cursor: pointer;
 }
 
 .story-container .information-page img {

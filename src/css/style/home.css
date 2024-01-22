@@ -18,6 +18,7 @@
   display: flex;
   align-items: center;
   gap: 2.4rem;
+  min-height: 5rem;
   text-align: center;
   overflow-x: auto;
   overflow-y: hidden;
@@ -30,8 +31,13 @@
 .story {
   -ms-overflow-style: none;
   scrollbar-width: none;
+  -webkit-user-drag: false;
 }
-
+.story-user{
+  /* aspect-ratio: 1/1;
+  width: 7.4rem;
+  height: 7.4rem; */
+}
 .story-user img {
   width: 7.4rem;
   height: 7.4rem;
@@ -39,6 +45,8 @@
   border: 0.3rem solid crimson;
   padding: 0.3rem;
   transition: all 0.3s;
+  aspect-ratio: 1/1;
+  object-fit: cover;
 }
 
 .story p {
@@ -71,6 +79,8 @@
   width: 4.8rem;
   border: 0.3rem solid #adb5bd;
   padding: 0.3rem;
+  object-fit: cover;
+  aspect-ratio: 1/1;
 }
 
 .image-post {
@@ -114,13 +124,12 @@
   height: 2.6rem;
 }
 
-.action-btn-post .btn-like:hover {
-  fill: crimson;
-  stroke: crimson;
+.action-btn-post .btn-like:active {
+  transform: scale(1.2);
 }
 
-.action-btn-post .btn-bookmark:hover {
-  fill: #000;
+.action-btn-post .btn-bookmark:active {
+  transform: scale(1.2);
 }
 
 .caption-post {

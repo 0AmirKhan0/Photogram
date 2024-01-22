@@ -1,20 +1,33 @@
 import { faker } from '@faker-js/faker';
-import { simpleFaker } from '@faker-js/faker';
-
-import axios from 'axios';
 import { getReq, postReq } from './request';
-export function userGenerator() {
-    const user = {
-        id: faker.string.uuid(),
-        username: faker.person.firstName() + faker.person.lastName(),
-        password: faker.string.numeric(8),
-        bio: faker.person.bio(),
-        avatar: faker.image.avatar()
+
+export function userGenerator(username, password) {
+    if (!username) {
+        const user = {
+            id: faker.string.uuid(),
+            username: faker.person.firstName() + faker.person.lastName(),
+            password: faker.string.numeric(8),
+            bio: faker.person.bio(),
+            avatar: faker.image.avatar()
+        }
+        postReq("/users", user)
+            .then(response => console.log(response))
+            .catch(err => console.log(err))
+        return user;
+    } else {
+        const user = {
+            id: faker.string.uuid(),
+            username: username,
+            password: password,
+            bio: '',
+            avatar: ''
+        }
+        postReq("/users", user)
+            .then(response => console.log(response))
+            .catch(err => console.log(err))
+        return user;
     }
-    axios.post("http://localhost:3001/users", user)
-        .then(response => console.log(response))
-        .catch(err => console.log(err))
-    return user;
+
 }
 
 
@@ -46,7 +59,6 @@ export function postGenerator(userId, postInp) {
         return postReq("/posts", post).then(post).catch()
     }
 }
-
 export function storyGenerator(userId, image) {
     if (!userId) {
         getReq("/users")
@@ -76,59 +88,7 @@ export function storyGenerator(userId, image) {
     }
 }
 
-export function commentGenerator(userId, postId) {
-    if (!userId) {
-        axios.get("/users")
-            .then(response => {
-                userId = response[Math.floor(Math.random() * response.length)].id
-            })
-            .catch(err => console.log(err))
-    }
-    if (!postId) {
-        axios.get("/posts")
-            .then(response => {
-                postId = response[Math.floor(Math.random() * response.length)].id
-            })
-            .catch(err => console.log(err))
-    }
-    const comment = {
-        id: faker.string.uuid(),
-        content: faker.lorem.sentences(),
-        created_time: faker.date.recent().toLocaleString(),
-        userId: userId,
-        postId: postId
-    }
-    axios.post("http://localhost:3001/comments", comment)
-        .then(response => console.log(response))
-        .catch(err => console.log(err))
-    return comment;
-}
-
-export function savedPostGenerator(userId = "1", postId = "1") {
-    const savedPost = {
-        id: faker.string.uuid(),
-        userId: userId,
-        postId: postId
-    }
-    axios.post("http://localhost:3001/savedPosts", savedPost)
-        .then(response => console.log(response))
-        .catch(err => console.log(err))
-    return savedPost;
-}
-
-export function likeGenerator(userId = "1", postId = "1") {
-    const like = {
-        id: faker.string.uuid(),
-        userId: userId,
-        postId: postId
-    }
-    axios.post("http://localhost:3001/likes", like)
-        .then(response => console.log(response))
-        .catch(err => console.log(err))
-    return like;
-}
-
-export function messageGenerator(chatId, senderId , content) {
+export function messageGenerator(chatId, senderId, content) {
     const datetime = new Date()
     const message = {
         id: faker.string.uuid(),
@@ -150,4 +110,69 @@ export function chatGenerator(user1Id, user2Id) {
     postReq("/chats", chat).then(chat).catch()
     return chat
 
+}
+// -------------------------------------
+export function commentGenerator(userId, postId, content) {
+    if (!userId) {
+        getReq("/users")
+            .then(users => {
+                getReq("/posts").then(posts => {
+                    const comment = {
+                        id: faker.string.uuid(),
+                        content: faker.lorem.sentences(),
+                        created_time: faker.date.past().toLocaleString(),
+                        userId: users[Math.floor(Math.random() * users.length)].id,
+                        postId: posts[Math.floor(Math.random() * posts.length)].id
+                    }
+                    postReq("/comments", comment).then().catch()
+                    return comment
+                }).catch()
+            }).catch()
+    } else {
+        const datetime = new Date()
+        const comment = {
+            id: faker.string.uuid(),
+            content: content,
+            created_time: datetime.toLocaleString(),
+            userId: userId,
+            postId: postId
+        }
+        postReq("/comments", comment).then().catch()
+        return comment
+    }
+}
+
+export function savedPostGenerator(userId, postId) {
+    const savedPost = {
+        id: faker.string.uuid(),
+        userId: userId,
+        postId: postId
+    }
+    postReq("/savedPosts", savedPost)
+        .then()
+        .catch()
+    return savedPost;
+}
+
+export function likeGenerator(userId, postId) {
+    const like = {
+        id: faker.string.uuid(),
+        userId: userId,
+        postId: postId
+    }
+    postReq("/likes", like)
+        .then()
+        .catch()
+    return like;
+}
+export function followGenerator(followerId, followingId) {
+    const follow = {
+        id: faker.string.uuid(),
+        followerId: followerId,
+        followingId: followingId
+    }
+    postReq("/follows", follow)
+        .then()
+        .catch()
+    return follow;
 }

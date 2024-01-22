@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { getReq } from '../../lib/request'
+import { Link } from 'react-router-dom'
 
 
 const fetchUser = async (id) => {
@@ -13,10 +14,10 @@ export default function Comment({ key, content, userId, time }) {
     return (
         <li className="comment-part">
             <div className="user-page">
-                <a href="./Page.html">
+                <Link to={`/user/${user?.id}`}>
                     <img src={user?.avatar} alt="picture of user"/>
                     <p>{user?.username}</p>
-                </a>
+                </Link>
             </div>
             <p>{content} <span>{time}</span></p>
         </li>

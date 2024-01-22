@@ -21,3 +21,22 @@ export const postReq = async (uri, data) => {
     }
 };
 
+export const deleteReq = async (uri) => {
+    const url = BaseUrl + uri
+    try {
+        const response = await axios.delete(url);
+        return response;
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+export const patchReq = async (uri, keys) => {
+    const url = BaseUrl + uri
+    try {
+        const response = await axios.patch(url, keys);
+        return response;
+    } catch (error) {
+        console.log(error)
+    }
+};

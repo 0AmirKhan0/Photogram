@@ -30,11 +30,13 @@
 .search-explore:focus {
   outline-color: #666;
 }
-
-.search-explore:focus + .dropdown-content {
-  /* display: flex; */
-  display: block;
+.block{
+  display: block !important;
 }
+
+/* .search-explore:focus + .dropdown-content {
+  display: block;
+} */
 
 .dropdown {
   position: relative;
@@ -43,7 +45,7 @@
 }
 
 .dropdown-content {
-  display: none;
+  /* display: none; */
   max-height: 50rem;
   overflow: auto;
   /* display: flex; */

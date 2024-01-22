@@ -5,7 +5,11 @@ import { actionTypes } from "../../Context/reducer"
 import { getReq, postReq } from "../../lib/request"
 import { faker } from "@faker-js/faker"
 import { useLocation, useNavigate } from "react-router-dom"
-
+import { userGenerator } from "../../lib/faker"
+import { toast } from 'react-toastify'
+function notify(message, type) {
+    toast[type](message)
+}
 const fetchUserData = async (username) => {
     return getReq(`/users?username=${username}`).then(users => users[0]).catch()
 }
@@ -63,20 +67,21 @@ export default function Login() {
                             payload: { user: tempUser }
                         })
                         navigate(location?.state?.from ? location.state.from : '/', { replace: true })
-                        // console.log(user)
                     } else {
+                        notify('Password is incorrect', 'error')
+                        // alert('Password is incorrect')
                         authDispatch({
                             type: actionTypes.LOGIN_ERROR,
                             payload: { error: 'Password is incorrect' }
                         })
-                        // console.log('ok3');
                     }
                 } else {
+                    // alert('Username does not exist')
+                    notify('Username does not exist', 'error')
                     authDispatch({
                         type: actionTypes.LOGIN_ERROR,
                         payload: { error: 'Username does not exist' }
                     })
-                    // console.log('ok4');
                 }
             })
             .catch()
@@ -84,23 +89,25 @@ export default function Login() {
     }
     const handleSignup = (e) => {
         e.preventDefault()
-        const tempUser = fetchUserData(singupForm.username).then(user => user).catch()
-        if (tempUser) {
-            authDispatch({
-                type: actionTypes.SIGNUP_ERROR,
-                payload: { error: 'This username already exists' }
-            })
-        } else {
-            const newUser = { id: faker.string.uuid(), username: singupForm.username, bio: '', avatar: '' }
-            postReq('/users', newUser)
-                .then(() => {
-                    saveLocalUser(newUser)
-                    authDispatch({
-                        type: actionTypes.SIGNUP_SUCCESS,
-                        payload: { user: newUser }
-                    })
-                }).catch()
-        }
+        fetchUserData(singupForm.username).then(user => {
+            if (user) {
+                // alert('This username already exists')
+                notify('This username already exists', 'error')
+                authDispatch({
+                    type: actionTypes.SIGNUP_ERROR,
+                    payload: { error: 'This username already exists' }
+                })
+            } else {
+                const newUser = userGenerator(singupForm.username, singupForm.password)
+                saveLocalUser(newUser.username)
+                notify('Welcome to photogram', 'success')
+                authDispatch({
+                    type: actionTypes.SIGNUP_SUCCESS,
+                    payload: { user: newUser }
+                })
+                navigate(location?.state?.from ? location.state.from : '/profile', { replace: true })
+            }
+        }).catch()
     }
     useLayoutEffect(() => {
         const username = localStorage.getItem('username')
@@ -127,21 +134,6 @@ export default function Login() {
         })
     }, [])
 
-    // useEffect(() => {
-    //     // console.log(user?.username);
-    //     const saveUser = async(user)=>{
-    //         localStorage.setItem('username', user.username)
-    //         console.log('ok')
-    //     }
-    //     if (user){
-    //         saveUser(user)
-    //     }
-    //     return (() => {
-    //         console.log("close!");
-    //         localStorage.setItem('username', user?.username)
-    //     })
-    // }, [user, authDispatch])
-
     return (
         <>
             {(loading) ? 'loading' :
@@ -150,7 +142,7 @@ export default function Login() {
                         <form>
                             <h1>Create Account</h1>
                             {/* <span>or use your email for registeration</span> */}
-                            <input onChange={handleUsernameForm} type="text" placeholder="Username" />
+                            <input minLength={8} onChange={handleUsernameForm} type="text" placeholder="Username" />
                             <input onChange={handlePasswordForm} type="password" placeholder="Password" />
                             <button onClick={handleSignup}>Sign Up</button>
                         </form>

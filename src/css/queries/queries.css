@@ -26,11 +26,13 @@
   }
 
   .detail-post {
+    /* display: none !important; */
     padding: 0 2rem;
+    height: auto !important;
   }
 
   .list-comments {
-    overflow-y: unset;
+    overflow: hidden !important;
   }
 
   .flex-section {
@@ -49,6 +51,12 @@
 @media (max-width: 44em) {
   html {
     font-size: 56.25%;
+  }
+  .story-container {
+    position: relative;
+    margin: auto;
+    width: 100vw !important;
+    height: 100vh !important;
   }
 }
 

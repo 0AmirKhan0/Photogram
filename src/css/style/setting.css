@@ -87,7 +87,7 @@
 }
 
 .image-preview {
-  background-image: url(../../img/profiling/alice.jpg);
+  /* background-image: url(../../img/profiling/alice.jpg); */
 }
 
 .input-bio {
@@ -109,12 +109,12 @@
   outline-color: #adb5bd;
 }
 
-.save-post {
+/* .save-post {
   text-decoration: none;
   background-color: #adb5bd;
   border-radius: 0.5rem;
   padding: 1.2rem;
-}
+} */
 
 .save-setting {
   margin-left: auto;
@@ -162,4 +162,18 @@
 
 .save-change-btn:focus:not(:active) {
   box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 0.125em;
+}
+.logout{
+  border: none;
+  cursor: pointer;
+  padding: 0.6rem 2rem;
+  border-radius: 10rem;
+  font-size: 1.6rem;
+  color: #fff;
+  background-color: rgb(255, 15, 63);
+  line-height: 1.5;
+  transition-duration: 200ms;
+}
+.logout:hover{
+  background-color:rgb(194, 12, 48);
 }

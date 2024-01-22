@@ -1,10 +1,8 @@
 
-import { createRef, useEffect, useRef, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
 
 export default function Layout({ children }) {
     const location = useLocation()
-    useEffect(() => console.log(location));
     return (
         <>
             <header className="container">
@@ -47,7 +45,7 @@ export default function Layout({ children }) {
                             </li>
                         </ul>
                     </nav>
-                    <Link to="/login"
+                    <Link to="/generator"
                     ><ion-icon name="logo-instagram" class="main-logo"></ion-icon></Link>
                 </div>
             </header >

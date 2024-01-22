@@ -12,7 +12,10 @@
   border-bottom: 5px outset rgba(0, 0, 0, 0.1);
   border-radius: 0px 0px 20px 20px;
 }
-
+.fix-message-padding{
+  transform: translateX(6.8rem);
+  border-radius: 6rem !important;
+}
 .back-arrow:link,
 .back-arrow:visited {
   text-decoration: none;

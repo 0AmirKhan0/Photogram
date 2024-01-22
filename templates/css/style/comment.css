@@ -40,6 +40,10 @@
   flex-direction: column;
 }
 
+.detail-post:last-child {
+  align-self: flex-end !important;
+}
+
 .information-post {
   padding-top: 2rem;
 }
