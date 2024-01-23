@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react"
+import { useEffect, useLayoutEffect, useState } from "react"
 import { getReq } from "../../lib/request"
 import { Link } from "react-router-dom"
 import StoryItem from "../StoryItem"
-export default function HomeStory({ story }) {
+export default function HomeStory() {
     const [stories, setStories] = useState([])
-    useEffect(() => {
+    useLayoutEffect(() => {
         getReq(`/users`).then(users => {
-            users.forEach(user => {
+            users?.forEach(user => {
                 getReq(`/stories?userId=${user.id}&_sort=created_time&_order=desc`).then(stories => {
                     if (stories.length > 0) {
                         console.log("okkkkkkkkkkkkkkkkkkkkk");
@@ -41,8 +41,8 @@ export default function HomeStory({ story }) {
             <ul className="story" id="story-container">
                 {stories &&
                     stories.map(story =>
-                        <li key={story.id} onDragStart={e => e.preventDefault()}>
-                            <StoryItem story={story} />
+                        <li onDragStart={e => e.preventDefault()}>
+                            <StoryItem key={story.id} story={story} />
                         </li>
                     )
                 }

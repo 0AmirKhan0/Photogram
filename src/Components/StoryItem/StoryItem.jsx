@@ -1,10 +1,11 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react'
 import { getReq } from '../../lib/request'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function StoryItem({ story }) {
     const [seen, setSeen] = useState(false)
     const [storyUser, setStoryUser] = useState(null)
+    const navigate = useNavigate()
     const handleSeen = () => {
         setSeen(true)
     }

@@ -2152,9 +2152,22 @@
       "created_time": "6/18/2023, 1:11:33 AM",
       "userId": "e9392cbc-27ee-4234-8a27-de1c92593714",
       "postId": "19d6e653-a27e-4815-9241-13f1427bcd9a"
+    },
+    {
+      "id": "4019f5bf-7aec-436b-a134-a311f904c337",
+      "content": "ghggjj",
+      "created_time": "1/23/2024, 4:07:34 PM",
+      "userId": "1",
+      "postId": "0dd7e6e1-9181-4188-ba04-a293e7670e90"
     }
   ],
-  "likes": [],
+  "likes": [
+    {
+      "id": "c1ccf429-84f3-4c4f-b66c-950a5de74585",
+      "userId": "1",
+      "postId": "1"
+    }
+  ],
   "stories": [
     {
       "id": "caaa87bd-c888-4b4a-826c-31510b4f11c0",
@@ -2297,34 +2310,6 @@
       "senderId": "1",
       "content": "2",
       "created_time": "1/21/2024, 1:11:09 AM"
-    },
-    {
-      "id": "a10160ad-d221-42e0-9cf7-33f0b39baa35",
-      "chatId": "1",
-      "senderId": "1",
-      "content": "3",
-      "created_time": "1/21/2024, 1:11:19 AM"
-    },
-    {
-      "id": "817d2def-ea62-4b2b-9ac9-b6f142073fdb",
-      "chatId": "1",
-      "senderId": "1",
-      "content": "salammm\n",
-      "created_time": "1/21/2024, 1:40:38 AM"
-    },
-    {
-      "id": "bea32ca1-fbb6-4d60-a84e-7acf49e49e17",
-      "chatId": "9b470748-4d61-44b1-9a5a-2aa9c69918d7",
-      "senderId": "1",
-      "content": "hello john",
-      "created_time": "1/22/2024, 12:39:41 PM"
-    },
-    {
-      "id": "1ec53482-2d3f-4a96-9e65-bedac1f4467f",
-      "chatId": "1",
-      "senderId": "1",
-      "content": "kjhkjfdhksahfsa",
-      "created_time": "1/22/2024, 7:10:56 PM"
     }
   ],
   "chats": [
@@ -2354,10 +2339,23 @@
       "user2Id": "2396e82b-a1d6-4652-b5cf-c3b7c9da09c8"
     },
     {
-      "id": "7a334141-cf5d-417e-bd9d-74472c67b88d",
-      "user1Id": "142c1972-426d-479f-8e83-a2ecef28f83e",
-      "user2Id": "8393addf-eb68-408b-bcec-85e5afc43709"
+      "id": "e4bbc5d9-bd57-4101-8038-cab767a85c9d",
+      "user1Id": "1",
+      "user2Id": "e41264be-7a19-4d87-80d1-4f7bb9e9130a"
     }
   ],
-  "follows": []
+  "follows": [
+    {
+      "id": "7c3f4f80-0b8e-4a9e-a765-555282495d31",
+      "followerId": "1",
+      "followingId": "8393addf-eb68-408b-bcec-85e5afc43709"
+    }
+  ],
+  "savedPosts": [
+    {
+      "id": "18c89456-89f4-47dc-b8a3-6c1dd6607fe0",
+      "userId": "1",
+      "postId": "1"
+    }
+  ]
 }

@@ -9,7 +9,7 @@ export default function SavedPosts() {
     const {user} = useAuthState(null)
     useEffect(() => {
         getReq(`/savedPosts?userId=${user.id}`).then(savedPosts => {
-            savedPosts.forEach(savedPost => {
+            savedPosts?.forEach(savedPost => {
                 getReq(`/posts?id=${savedPost.postId}`).then(posts => setPosts(state => [posts[0], ...state])).catch()
             })
         }).catch()
@@ -18,7 +18,7 @@ export default function SavedPosts() {
         <Layout>
             <section class="save-section container grid--3--cols">
                 {(posts) ?
-                    posts.map(post => <Link to={`/post/${post.id}`} class="save-post"><img src={post.image} alt="picture" /></Link>) 
+                    posts.map(post => <Link key={post.id} to={`/post/${post.id}`} class="save-post"><img src={post.image} alt="picture" /></Link>) 
                     : <span>There are no saved posts</span>
                 }
             </section>

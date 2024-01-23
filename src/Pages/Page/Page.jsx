@@ -23,7 +23,7 @@ export default function Page() {
     }, [pageUser])
     useEffect(() => {
         if (pageUser) {
-            getReq(`/follows?followerId=${user.id}&follwingId=${pageUser.id}`).then(follows => {
+            getReq(`/follows?followerId=${user.id}&followingId=${pageUser.id}`).then(follows => {
                 if (follows.length > 0) {
                     setFollow(follows[0])
                 }
@@ -96,7 +96,7 @@ export default function Page() {
                 </div>
                 <div className="post-profile-section">
                     <div className="list-post">
-                        {posts && posts.map(post => <Link to={`/post/${post?.id}`} className="post"><img src={post?.image} alt="post of user" /></Link>)}
+                        {posts && posts.map(post => <Link key={post.id} to={`/post/${post?.id}`} className="post"><img src={post?.image} alt="post of user" /></Link>)}
                     </div>
                 </div>
             </section>

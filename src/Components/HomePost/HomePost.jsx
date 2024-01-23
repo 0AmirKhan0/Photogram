@@ -15,7 +15,7 @@ export default function HomePost({ post }) {
             .then(users => {
                 setPostUser(users[0])
             }).catch()
-        getReq(`/savedPosts?userId=${user.id}&postId=${post.id}`).then(savedPosts => setSaved(savedPosts?savedPosts:null)).catch()
+        getReq(`/savedPosts?userId=${user.id}&postId=${post.id}`).then(savedPosts => setSaved((savedPosts?.length)?savedPosts[0]:null)).catch()
         getReq(`/comments?postId=${post.id}&_limit=3`).then(comments => setComments(comments)).catch()
     }, [])
     useEffect(() => {
@@ -45,6 +45,7 @@ export default function HomePost({ post }) {
             const tempSave = savedPostGenerator(user.id, post.id)
             setSaved(tempSave)
         } else {
+            console.log(saved.id);
             deleteReq(`/savedPosts/${saved.id}`)
             setSaved(null)
         }

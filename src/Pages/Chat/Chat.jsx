@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import '../../css/style/chat.css'
 import { Link, useParams } from 'react-router-dom'
 import { getReq } from '../../lib/request'
@@ -13,7 +13,7 @@ export default function Chat() {
     const [secondUser, setSecondUser] = useState(null)
     const [messageInput, setMessageInput] = useState('')
     const scroller = useRef()
-    useEffect(() => {
+    useLayoutEffect(() => {
         getReq(`/chats?id=${id}`).then(chats => setChat(chats[0])).catch()
     }, [])
     useEffect(() => {
@@ -33,10 +33,12 @@ export default function Chat() {
         setMessageInput(e.target.value)
     }
     const sendMessage = () => {
-        const msg = messageGenerator(chat.id, user.id, messageInput)
-        setMessages(state => [...state, msg])
-        setMessageInput('')
-        console.log(messages);
+        if (messageInput) {
+            const msg = messageGenerator(chat.id, user.id, messageInput)
+            setMessages(state => [...state, msg])
+            setMessageInput('')
+            console.log(messages);
+        }
     }
     return (
         <Layout>
@@ -45,9 +47,9 @@ export default function Chat() {
                     <Link to="/message" className="back-arrow">
                         <ion-icon name="arrow-back-outline"></ion-icon>
                     </Link>
-                        <img src={secondUser?.avatar} alt="profile user" />
+                    <img src={secondUser?.avatar} alt="profile user" />
                     <Link to={`/user/${secondUser?.id}`}>
-                        <p className="user-id">John</p>
+                        <p className="user-id">{secondUser?.username}</p>
                     </Link>
                 </header>
 

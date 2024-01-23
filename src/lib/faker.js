@@ -20,7 +20,7 @@ export function userGenerator(username, password) {
             username: username,
             password: password,
             bio: '',
-            avatar: ''
+            avatar: 'https://studycrafter.com/wp-content/uploads/2017/12/IAFOR-Blank-Avatar-Image-1.jpg'
         }
         postReq("/users", user)
             .then(response => console.log(response))
