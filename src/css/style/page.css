@@ -46,15 +46,21 @@
   box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 0.125em;
 }
 
+.flex-section .user-id {
+  font-size: 3.2rem;
+  font-weight: bold;
+}
+
 .btn-message {
   background-color: #f1f3f5;
   border: 0.2rem solid #88888867;
   color: #555;
-  width: 11rem;
+  width: 10rem;
   height: 4rem;
 
   font-size: 1.6rem;
   padding: 0.6rem 2rem;
+  margin-left: 0.3rem;
   border-radius: 1rem;
   cursor: pointer;
 

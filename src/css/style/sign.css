@@ -28,8 +28,8 @@ body {
   width: 76.8rem;
   max-width: 100%;
   min-height: 48rem;
-  margin: auto;
-  transform: translateY(10rem);
+  margin: 3rem auto;
+  /* transform: translateY(10rem); */
 }
 
 .container-sign p {
