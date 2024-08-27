@@ -22,16 +22,25 @@ Photogram is a social media application similar to Instagram, where users can sh
 
 ## Images
 ### Home Page
-<img src="/Images/home.jpg" alt="Homepage" width="600" height="300">
+<p align="center">
+<img src="/Images/home.jpg" alt="Homepage" width="600" height="300" >
+</p>
 
 ### Post
-<img src="/Images/comment panel.jpg" alt="comment" width="600" height="300">
+<p align="center">
+<img src="/Images/comment panel.jpg" alt="comment" width="600" height="300" >
+</p>
 
 ### Explore
-<img src="/Images/responsive 3.png" alt="Explore" width="600" height="900">
+<p align="center">
+<img src="/Images/responsive 3.png" alt="Explore" width="600" height="900" >
+</p>
 
 ### Profile
-<img src="/Images/profile.jpg" alt="profile" width="600" height="300">
+<p align="center">
+<img src="/Images/profile.jpg" alt="profile" width="600" height="300" >
+</p>
+  
 
 if you want more images, you can see them in images folder.
 
