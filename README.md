@@ -2,7 +2,7 @@
 
 Photogram is a social media application similar to Instagram, where users can share photos, like posts, and follow other users. This project is built using React and a JSON Server to simulate a REST API.
 
-**Note:** This project is part of my Bachelor's degree project at [Your University Name]. It aims to demonstrate the application of web development technologies and the creation of a full-stack application.
+**Note:** This project is part of my Bachelor's degree project at ValiAsr University. It aims to demonstrate the application of web development technologies and the creation of a full-stack application.
 
 ## Table of Contents
 
